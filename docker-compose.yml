@@ -1,0 +1,31 @@
+version: "3.9"
+
+# Run both frontend and backend with: docker-compose up
+# Frontend will be at http://localhost:5173
+# Backend will be at http://localhost:8000
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app          # Hot reload during development
+    env_file:
+      - ./backend/.env
+    command: uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules       # Don't overwrite container's node_modules
+    environment:
+      - VITE_API_URL=http://localhost:8000
+    command: npm run dev -- --host
