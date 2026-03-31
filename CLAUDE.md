@@ -265,7 +265,8 @@ The `.env` file must be in `.gitignore` before the first commit.
 | Phase 4 | React frontend: upload, dashboard, chat, citations | 7–8 days |
 | Phase 5 | Polish, testing with real docs, deployment | 4–5 days |
 
-**Rule:** Never start the next phase until the current phase passes its checkpoint test.
+**Rule:** Never start the next
+ phase until the current phase passes its checkpoint test.
 
 ---
 
@@ -274,7 +275,7 @@ The `.env` file must be in `.gitignore` before the first commit.
 - RAG > fine-tuning for document Q&A: grounded in real content, cheaper, no retraining
 - Hallucination prevention: strict system prompts + null for missing fields + citations
 - LangGraph > CrewAI: explicit state transitions, debuggable, production-ready
-- Chunking trade-off: 800 tokens with 150 overlap — tested on real contracts
+- Chunking trade-off: 800 tokens with 150 overlap — tested on real contractss
 - Scaling path: Celery + Redis for async, Pinecone serverless, PostgreSQL for persistence
 
 ---
